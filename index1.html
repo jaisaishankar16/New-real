@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Housing Website</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='style1.css')}}">
+</head>
+<body onload="document.myForm.reset();">
+  <header>
+    <h1>Find Your Dream Home</h1>
+  </header>
+  <main>
+    <form action="/form" method="POST">
+      <h2>Search for a Home</h2>
+      <div class="bg-image"></div>
+      <label for="location"><b>Location:</b></label>
+      <select  id="location" name="location" placeholder="Enter the location of the house">
+        {% for location in lo %}
+        <option value="{{location}}">{{location}} </option>
+        {% endfor %}
+      </select>
+      <!-- <label for="location">Location:</label>
+      <input type="text" id="location" name="location" placeholder="Enter the location of the house" required>       -->
+    
+      <label for="bedrooms"><b>SquareFeet:</b></label>
+      <input type="number" id="sqft" name="sqft" placeholder="Enter the SquareFeet of the house" required>
+
+      <label for="bathrooms"><b>Bathrooms:</b></label>
+      <input type="number" id="bathrooms" name="bath" placeholder="Enter the number of bathrooms" required>
+      
+      <label for="bedrooms"><b>Bedrooms:</b></label>
+      <input type="number" id="bedrooms" name="bhk" placeholder="Enter the number of bedrooms" required>
+<br>
+      <input type="submit" value="SUBMIT"><br>
+      <label for="min-price"><b>Price:{{ans}}</b></label>
+      <!-- <input type="number" id="min-price" name="min-price" placeholder="The value of the house is"> -->
+
+    </form>
+  </main>
+  <footer>
+    <center><p><b>&copy; 2023 My Housing Website</b></p></center>
+  </footer>
+</body>
+</html>
